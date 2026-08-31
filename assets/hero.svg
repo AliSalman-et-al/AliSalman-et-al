@@ -1,6 +1,6 @@
 <svg width="1200" height="384" viewBox="0 0 1200 384" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision">
-  <title id="title">Ali Salman — health data science, AI, clinical research, evidence synthesis, and open source.</title>
-  <desc id="desc">A Vercel-inspired profile card with balanced spacing, a restrained multicolor mesh, and research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
+  <title id="title">Ali Salman — medical student studying clinical outcomes with health data and evidence synthesis.</title>
+  <desc id="desc">A Vercel-inspired profile card. Ali builds open-source research software and explores AI in healthcare. Public research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
 
   <defs>
     <clipPath id="frame-clip">
@@ -112,19 +112,19 @@
     <rect x="560" y="0" width="600" height="384" fill="url(#text-fade-dark)" class="fade-dark"/>
 
     <circle cx="64" cy="50" r="4.5" class="blue"/>
-    <text x="78" y="54" class="label ink">ALI SALMAN</text>
+    <text x="78" y="54" class="label ink">MEDICAL STUDENT</text>
 
     <text x="64" y="151" class="display ink">Ali Salman.</text>
-    <text x="64" y="204" class="body-text body">Medical student working across health data science, AI / machine learning,</text>
-    <text x="64" y="233" class="body-text body">clinical research, evidence synthesis, and open-source research software.</text>
+    <text x="64" y="204" class="body-text body">I study clinical outcomes with health data and evidence synthesis.</text>
+    <text x="64" y="233" class="body-text body">I build open-source research software and explore AI in healthcare.</text>
 
     <rect x="752" y="80" width="384" height="232" rx="12" class="card-shadow"/>
     <rect x="752" y="76" width="384" height="232" rx="12" class="surface"/>
     <rect x="752.5" y="76.5" width="383" height="231" rx="11.5" class="frame"/>
 
     <circle cx="784" cy="108" r="4.5" class="blue"/>
-    <text x="796" y="112" class="label ink">RESEARCH PROFILE</text>
-    <text x="1104" y="112" text-anchor="end" class="label muted">ORCID + SCHOLAR</text>
+    <text x="796" y="112" class="label ink">RESEARCH METRICS</text>
+    <text x="1104" y="112" text-anchor="end" class="label muted">ALL TIME</text>
 
     <line x1="784" y1="136.5" x2="1104" y2="136.5" class="hairline"/>
     <line x1="944" y1="153" x2="944" y2="291" class="hairline"/>
