@@ -1,0 +1,147 @@
+<svg width="720" height="640" viewBox="0 0 720 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ali Salman — health data science, AI, clinical research, evidence synthesis, and open source.</title>
+  <desc id="desc">A mobile Vercel-inspired profile card with a restrained multicolor mesh and research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
+
+  <defs>
+    <clipPath id="frame-clip">
+      <rect x="1" y="1" width="718" height="638" rx="18"/>
+    </clipPath>
+
+    <filter id="frame-shadow" x="-4%" y="-4%" width="108%" height="112%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.035"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.028"/>
+    </filter>
+
+    <filter id="mesh-blur" x="-80%" y="-80%" width="260%" height="260%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="55"/>
+    </filter>
+
+    <radialGradient id="develop" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#007CF0" stop-opacity="0.96"/>
+      <stop offset="0.58" stop-color="#00DFD8" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#00DFD8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="preview" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#7928CA" stop-opacity="0.94"/>
+      <stop offset="0.58" stop-color="#FF0080" stop-opacity="0.74"/>
+      <stop offset="1" stop-color="#FF0080" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ship" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FF4D4D" stop-opacity="0.92"/>
+      <stop offset="0.58" stop-color="#F9CB28" stop-opacity="0.76"/>
+      <stop offset="1" stop-color="#F9CB28" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="fade-light" x1="210" y1="320" x2="690" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFAFA" stop-opacity="1"/>
+      <stop offset="0.46" stop-color="#FAFAFA" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#FAFAFA" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fade-dark" x1="210" y1="320" x2="690" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A0A0A" stop-opacity="1"/>
+      <stop offset="0.46" stop-color="#0A0A0A" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#0A0A0A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .canvas { fill: #FAFAFA; }
+    .surface { fill: #FFFFFF; }
+    .frame { fill: none; stroke: rgba(0, 0, 0, 0.08); }
+    .hairline { stroke: #EBEBEB; stroke-width: 1; }
+    .ink { fill: #171717; }
+    .body { fill: #4D4D4D; }
+    .muted { fill: #8F8F8F; }
+    .blue { fill: #0072F5; }
+    .mesh { opacity: 0.84; }
+    .fade-light { display: inline; }
+    .fade-dark { display: none; }
+    .display {
+      font-family: Geist, Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 62px;
+      font-weight: 600;
+      letter-spacing: -2.9px;
+    }
+    .body-text {
+      font-family: Geist, Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.15px;
+    }
+    .label {
+      font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.38px;
+    }
+    .metric-value {
+      font-family: Geist, Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 43px;
+      font-weight: 600;
+      letter-spacing: -1.45px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .canvas { fill: #0A0A0A; }
+      .surface { fill: #111111; }
+      .frame { stroke: #2A2A2A; }
+      .hairline { stroke: #2A2A2A; }
+      .ink { fill: #FAFAFA; }
+      .body { fill: #A1A1A1; }
+      .muted { fill: #888888; }
+      .blue { fill: #52AEFF; }
+      .mesh { opacity: 0.62; }
+      .fade-light { display: none; }
+      .fade-dark { display: inline; }
+    }
+  </style>
+
+  <g clip-path="url(#frame-clip)">
+    <rect x="1" y="1" width="718" height="638" rx="18" class="canvas" filter="url(#frame-shadow)"/>
+
+    <g class="mesh" filter="url(#mesh-blur)">
+      <ellipse cx="640" cy="28" rx="202" ry="136" fill="url(#develop)"/>
+      <ellipse cx="606" cy="278" rx="210" ry="158" fill="url(#preview)"/>
+      <ellipse cx="690" cy="626" rx="238" ry="146" fill="url(#ship)"/>
+    </g>
+
+    <rect x="190" y="0" width="530" height="640" fill="url(#fade-light)" class="fade-light"/>
+    <rect x="190" y="0" width="530" height="640" fill="url(#fade-dark)" class="fade-dark"/>
+
+    <circle cx="42" cy="48" r="6" class="blue"/>
+    <text x="62" y="54" class="label ink">ALI SALMAN</text>
+
+    <text x="40" y="137" class="display ink">Ali Salman.</text>
+    <text x="40" y="190" class="body-text body">Medical student working in health data science,</text>
+    <text x="40" y="223" class="body-text body">AI / machine learning, clinical research,</text>
+    <text x="40" y="256" class="body-text body">evidence synthesis, and open-source research software.</text>
+    <rect x="40" y="304" width="640" height="276" rx="14" class="surface"/>
+    <rect x="40.5" y="304.5" width="639" height="275" rx="13.5" class="frame"/>
+
+    <circle cx="72" cy="341" r="5" class="blue"/>
+    <text x="88" y="347" class="label ink">RESEARCH PROFILE</text>
+    <text x="648" y="347" text-anchor="end" class="label muted">ORCID + SCHOLAR</text>
+
+    <line x1="72" y1="371" x2="648" y2="371" class="hairline"/>
+    <line x1="360" y1="393" x2="360" y2="552" class="hairline"/>
+    <line x1="72" y1="472" x2="648" y2="472" class="hairline"/>
+
+    <circle cx="76" cy="406" r="5" fill="#0072F5"/>
+    <text x="92" y="412" class="label muted">PUBLICATIONS</text>
+    <text id="metric-publications" x="72" y="459" class="metric-value ink">29</text>
+
+    <circle cx="396" cy="406" r="5" fill="#45DEC5"/>
+    <text x="412" y="412" class="label muted">CITATIONS</text>
+    <text id="metric-citations" x="392" y="459" class="metric-value ink">124</text>
+
+    <circle cx="76" cy="507" r="5" fill="#EA3E83"/>
+    <text x="92" y="513" class="label muted">H-INDEX</text>
+    <text id="metric-h-index" x="72" y="560" class="metric-value ink">6</text>
+
+    <circle cx="396" cy="507" r="5" fill="#FF990A"/>
+    <text x="412" y="513" class="label muted">I10-INDEX</text>
+    <text id="metric-i10-index" x="392" y="560" class="metric-value ink">5</text>
+  </g>
+
+  <rect x="1" y="1" width="718" height="638" rx="18" class="frame"/>
+</svg>

@@ -1,0 +1,57 @@
+name: Update research metrics
+
+on:
+  push:
+    paths:
+      - assets/hero.svg
+      - assets/hero-mobile.svg
+      - data/research-metrics.json
+      - scripts/update_research_metrics.py
+      - .github/workflows/update-research-metrics.yml
+  schedule:
+    - cron: "23 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-readme-updates
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the profile repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Update ORCID and Google Scholar metrics
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: python scripts/update_research_metrics.py
+
+      - name: Commit changed metrics
+        run: |
+          if git diff --quiet -- \
+            assets/hero.svg \
+            assets/hero-mobile.svg \
+            data/research-metrics.json; then
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            assets/hero.svg \
+            assets/hero-mobile.svg \
+            data/research-metrics.json
+          git commit -m "Refresh research metrics"
+          git pull --rebase
+          git push
