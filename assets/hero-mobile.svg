@@ -1,6 +1,6 @@
 <svg width="720" height="584" viewBox="0 0 720 584" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision">
-  <title id="title">Ali Salman — medical student studying clinical outcomes with health data and evidence synthesis.</title>
-  <desc id="desc">A mobile Vercel-inspired profile card. Ali builds open-source research software and explores AI in healthcare. Public research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
+  <title id="title">Ali Salman. Medical student working in health data science, AI and machine learning, clinical research, evidence synthesis, and open-source research software.</title>
+  <desc id="desc">A mobile Vercel-inspired profile card with public research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
 
   <defs>
     <clipPath id="frame-clip">
@@ -109,12 +109,10 @@
     <rect x="220" y="0" width="500" height="584" fill="url(#fade-light)" class="fade-light"/>
     <rect x="220" y="0" width="500" height="584" fill="url(#fade-dark)" class="fade-dark"/>
 
-    <circle cx="42" cy="48" r="5.5" class="blue"/>
-    <text x="60" y="53" class="label ink">MEDICAL STUDENT</text>
-
-    <text x="40" y="137" class="display ink">Ali Salman.</text>
-    <text x="40" y="188" class="body-text body">I study clinical outcomes with health data and evidence synthesis.</text>
-    <text x="40" y="217" class="body-text body">I build open-source research software and explore AI in healthcare.</text>
+    <text x="40" y="112" class="display ink">Ali Salman.</text>
+    <text x="40" y="163" class="body-text body">I am a medical student working in health data science,</text>
+    <text x="40" y="192" class="body-text body">AI and machine learning, clinical research, and evidence synthesis.</text>
+    <text x="40" y="221" class="body-text body">I build open-source research software.</text>
 
     <rect x="40" y="256" width="640" height="280" rx="12" class="card-shadow"/>
     <rect x="40" y="252" width="640" height="280" rx="12" class="surface"/>
