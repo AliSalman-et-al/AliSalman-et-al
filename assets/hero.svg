@@ -1,5 +1,5 @@
 <svg width="1200" height="384" viewBox="0 0 1200 384" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision">
-  <title id="title">Ali Salman. Health data science, AI and machine learning, clinical research, evidence synthesis, and open-source research software.</title>
+  <title id="title">Ali Salman. Health data science, AI and machine learning, clinical research, and open-source research software.</title>
   <desc id="desc">A Vercel-inspired profile card with public research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
 
   <defs>
@@ -112,8 +112,8 @@
     <rect x="560" y="0" width="600" height="384" fill="url(#text-fade-dark)" class="fade-dark"/>
 
     <text x="64" y="158" class="display ink">Ali Salman.</text>
-    <text x="64" y="212" class="body-text body">I work in health data science, AI and machine learning, clinical research,</text>
-    <text x="64" y="240" class="body-text body">and evidence synthesis. I also build open-source research software.</text>
+    <text x="64" y="212" class="body-text body">I work in health data science, AI and machine learning, and clinical research.</text>
+    <text x="64" y="240" class="body-text body">I also build open-source research software.</text>
 
     <rect x="752" y="80" width="384" height="232" rx="12" class="card-shadow"/>
     <rect x="752" y="76" width="384" height="232" rx="12" class="surface"/>
