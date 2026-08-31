@@ -1,10 +1,10 @@
-<svg width="720" height="556" viewBox="0 0 720 556" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision">
-  <title id="title">Ali Salman. Clinical research, health data science, machine learning, AI, and open-source research software.</title>
+<svg width="720" height="528" viewBox="0 0 720 528" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision">
+  <title id="title">Ali Salman. Clinical research, health data science, ML/AI, and open-source research software.</title>
   <desc id="desc">A mobile Vercel-inspired profile card with public research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
 
   <defs>
     <clipPath id="frame-clip">
-      <rect x="1" y="1" width="718" height="554" rx="14"/>
+      <rect x="1" y="1" width="718" height="526" rx="14"/>
     </clipPath>
 
     <filter id="mesh-blur" x="-85%" y="-85%" width="270%" height="270%" color-interpolation-filters="sRGB">
@@ -27,12 +27,12 @@
       <stop offset="1" stop-color="#F9CB28" stop-opacity="0"/>
     </radialGradient>
 
-    <linearGradient id="fade-light" x1="250" y1="278" x2="700" y2="278" gradientUnits="userSpaceOnUse">
+    <linearGradient id="fade-light" x1="250" y1="264" x2="700" y2="264" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FAFAFA" stop-opacity="1"/>
       <stop offset="0.48" stop-color="#FAFAFA" stop-opacity="0.94"/>
       <stop offset="1" stop-color="#FAFAFA" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="fade-dark" x1="250" y1="278" x2="700" y2="278" gradientUnits="userSpaceOnUse">
+    <linearGradient id="fade-dark" x1="250" y1="264" x2="700" y2="264" gradientUnits="userSpaceOnUse">
       <stop stop-color="#0A0A0A" stop-opacity="1"/>
       <stop offset="0.48" stop-color="#0A0A0A" stop-opacity="0.96"/>
       <stop offset="1" stop-color="#0A0A0A" stop-opacity="0"/>
@@ -98,50 +98,49 @@
   </style>
 
   <g clip-path="url(#frame-clip)">
-    <rect x="1" y="1" width="718" height="554" rx="14" class="canvas"/>
+    <rect x="1" y="1" width="718" height="526" rx="14" class="canvas"/>
 
     <g class="mesh" filter="url(#mesh-blur)">
       <ellipse cx="650" cy="6" rx="210" ry="136" fill="url(#develop)"/>
-      <ellipse cx="610" cy="258" rx="216" ry="160" fill="url(#preview)"/>
-      <ellipse cx="692" cy="556" rx="244" ry="148" fill="url(#ship)"/>
+      <ellipse cx="610" cy="246" rx="216" ry="160" fill="url(#preview)"/>
+      <ellipse cx="692" cy="528" rx="244" ry="148" fill="url(#ship)"/>
     </g>
 
-    <rect x="220" y="0" width="500" height="556" fill="url(#fade-light)" class="fade-light"/>
-    <rect x="220" y="0" width="500" height="556" fill="url(#fade-dark)" class="fade-dark"/>
+    <rect x="220" y="0" width="500" height="528" fill="url(#fade-light)" class="fade-light"/>
+    <rect x="220" y="0" width="500" height="528" fill="url(#fade-dark)" class="fade-dark"/>
 
     <text x="40" y="110" class="display ink">Ali Salman.</text>
-    <text x="40" y="158" class="body-text body">I work in clinical research, health data science,</text>
-    <text x="40" y="187" class="body-text body">machine learning, and AI.</text>
-    <text x="40" y="216" class="body-text body">I also build open-source research software.</text>
+    <text x="40" y="158" class="body-text body">I work in clinical research, health data science, and ML/AI.</text>
+    <text x="40" y="187" class="body-text body">I also build open-source research software.</text>
 
-    <rect x="40" y="244" width="640" height="280" rx="12" class="card-shadow"/>
-    <rect x="40" y="240" width="640" height="280" rx="12" class="surface"/>
-    <rect x="40.5" y="240.5" width="639" height="279" rx="11.5" class="frame"/>
+    <rect x="40" y="220" width="640" height="280" rx="12" class="card-shadow"/>
+    <rect x="40" y="216" width="640" height="280" rx="12" class="surface"/>
+    <rect x="40.5" y="216.5" width="639" height="279" rx="11.5" class="frame"/>
 
-    <circle cx="72" cy="278" r="5" class="blue"/>
-    <text x="88" y="283" class="label ink">RESEARCH METRICS</text>
-    <text x="648" y="283" text-anchor="end" class="label muted">ALL TIME</text>
+    <circle cx="72" cy="254" r="5" class="blue"/>
+    <text x="88" y="259" class="label ink">RESEARCH METRICS</text>
+    <text x="648" y="259" text-anchor="end" class="label muted">ALL TIME</text>
 
-    <line x1="72" y1="304.5" x2="648" y2="304.5" class="hairline"/>
-    <line x1="360" y1="326" x2="360" y2="500" class="hairline"/>
-    <line x1="72" y1="412" x2="648" y2="412" class="hairline"/>
+    <line x1="72" y1="280.5" x2="648" y2="280.5" class="hairline"/>
+    <line x1="360" y1="302" x2="360" y2="476" class="hairline"/>
+    <line x1="72" y1="388" x2="648" y2="388" class="hairline"/>
 
-    <circle cx="72" cy="334" r="5" fill="#0072F5"/>
-    <text x="88" y="339" class="label muted">PUBLICATIONS</text>
-    <text id="metric-publications" x="72" y="387" class="metric-value ink">29</text>
+    <circle cx="72" cy="310" r="5" fill="#0072F5"/>
+    <text x="88" y="315" class="label muted">PUBLICATIONS</text>
+    <text id="metric-publications" x="72" y="363" class="metric-value ink">29</text>
 
-    <circle cx="392" cy="334" r="5" fill="#45DEC5"/>
-    <text x="408" y="339" class="label muted">CITATIONS</text>
-    <text id="metric-citations" x="392" y="387" class="metric-value ink">124</text>
+    <circle cx="392" cy="310" r="5" fill="#45DEC5"/>
+    <text x="408" y="315" class="label muted">CITATIONS</text>
+    <text id="metric-citations" x="392" y="363" class="metric-value ink">124</text>
 
-    <circle cx="72" cy="442" r="5" fill="#EA3E83"/>
-    <text x="88" y="447" class="label muted">H-INDEX</text>
-    <text id="metric-h-index" x="72" y="495" class="metric-value ink">6</text>
+    <circle cx="72" cy="418" r="5" fill="#EA3E83"/>
+    <text x="88" y="423" class="label muted">H-INDEX</text>
+    <text id="metric-h-index" x="72" y="471" class="metric-value ink">6</text>
 
-    <circle cx="392" cy="442" r="5" fill="#FF990A"/>
-    <text x="408" y="447" class="label muted">I10-INDEX</text>
-    <text id="metric-i10-index" x="392" y="495" class="metric-value ink">5</text>
+    <circle cx="392" cy="418" r="5" fill="#FF990A"/>
+    <text x="408" y="423" class="label muted">I10-INDEX</text>
+    <text id="metric-i10-index" x="392" y="471" class="metric-value ink">5</text>
   </g>
 
-  <rect x="1" y="1" width="718" height="554" rx="14" class="frame"/>
+  <rect x="1" y="1" width="718" height="526" rx="14" class="frame"/>
 </svg>
