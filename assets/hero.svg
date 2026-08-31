@@ -1,5 +1,5 @@
 <svg width="1200" height="384" viewBox="0 0 1200 384" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision">
-  <title id="title">Ali Salman. Medical student working in health data science, AI and machine learning, clinical research, evidence synthesis, and open-source research software.</title>
+  <title id="title">Ali Salman. Health data science, AI and machine learning, clinical research, evidence synthesis, and open-source research software.</title>
   <desc id="desc">A Vercel-inspired profile card with public research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
 
   <defs>
@@ -56,14 +56,14 @@
     .fade-dark { display: none; }
     .display {
       font-family: Geist, Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 64px;
+      font-size: 60px;
       font-weight: 600;
-      letter-spacing: -3.04px;
+      letter-spacing: -2.85px;
       font-feature-settings: "liga" 1, "kern" 1;
     }
     .body-text {
       font-family: Geist, Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 400;
       letter-spacing: 0;
       font-feature-settings: "liga" 1, "kern" 1;
@@ -111,9 +111,9 @@
     <rect x="560" y="0" width="600" height="384" fill="url(#text-fade-light)" class="fade-light"/>
     <rect x="560" y="0" width="600" height="384" fill="url(#text-fade-dark)" class="fade-dark"/>
 
-    <text x="64" y="134" class="display ink">Ali Salman.</text>
-    <text x="64" y="187" class="body-text body">I am a medical student working in health data science, AI and machine learning,</text>
-    <text x="64" y="216" class="body-text body">clinical research, and evidence synthesis. I build open-source research software.</text>
+    <text x="64" y="158" class="display ink">Ali Salman.</text>
+    <text x="64" y="212" class="body-text body">I work in health data science, AI and machine learning, clinical research,</text>
+    <text x="64" y="240" class="body-text body">and evidence synthesis. I also build open-source research software.</text>
 
     <rect x="752" y="80" width="384" height="232" rx="12" class="card-shadow"/>
     <rect x="752" y="76" width="384" height="232" rx="12" class="surface"/>
