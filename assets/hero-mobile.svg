@@ -1,10 +1,10 @@
 <svg width="720" height="620" viewBox="0 0 720 620" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision">
   <title id="title">Ali Salman — health data science, AI, clinical research, evidence synthesis, and open source.</title>
-  <desc id="desc">A mobile Vercel-inspired profile card with aligned typography, a restrained multicolor mesh, and research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
+  <desc id="desc">A mobile Vercel-inspired profile card with balanced spacing, a restrained multicolor mesh, and research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
 
   <defs>
     <clipPath id="frame-clip">
-      <rect x="1" y="1" width="718" height="618" rx="16"/>
+      <rect x="1" y="1" width="718" height="618" rx="14"/>
     </clipPath>
 
     <filter id="mesh-blur" x="-85%" y="-85%" width="270%" height="270%" color-interpolation-filters="sRGB">
@@ -42,7 +42,7 @@
   <style>
     .canvas { fill: #FAFAFA; }
     .surface { fill: #FFFFFF; }
-    .card-shadow { fill: #000000; opacity: 0.045; }
+    .card-shadow { fill: #000000; opacity: 0.04; }
     .frame { fill: none; stroke: #000000; stroke-opacity: 0.08; }
     .hairline { stroke: #EBEBEB; stroke-width: 1; }
     .ink { fill: #171717; }
@@ -84,7 +84,7 @@
     @media (prefers-color-scheme: dark) {
       .canvas { fill: #0A0A0A; }
       .surface { fill: #111111; }
-      .card-shadow { opacity: 0.24; }
+      .card-shadow { opacity: 0.22; }
       .frame { stroke: #FFFFFF; stroke-opacity: 0.12; }
       .hairline { stroke: #2A2A2A; }
       .ink { fill: #FAFAFA; }
@@ -98,7 +98,7 @@
   </style>
 
   <g clip-path="url(#frame-clip)">
-    <rect x="1" y="1" width="718" height="618" rx="16" class="canvas"/>
+    <rect x="1" y="1" width="718" height="618" rx="14" class="canvas"/>
 
     <g class="mesh" filter="url(#mesh-blur)">
       <ellipse cx="650" cy="6" rx="210" ry="136" fill="url(#develop)"/>
@@ -117,34 +117,34 @@
     <text x="40" y="219" class="body-text body">AI / machine learning, clinical research,</text>
     <text x="40" y="250" class="body-text body">evidence synthesis, and open-source research software.</text>
 
-    <rect x="40" y="296" width="640" height="270" rx="14" class="card-shadow"/>
-    <rect x="40" y="292" width="640" height="270" rx="14" class="surface"/>
-    <rect x="40.5" y="292.5" width="639" height="269" rx="13.5" class="frame"/>
+    <rect x="40" y="292" width="640" height="280" rx="12" class="card-shadow"/>
+    <rect x="40" y="288" width="640" height="280" rx="12" class="surface"/>
+    <rect x="40.5" y="288.5" width="639" height="279" rx="11.5" class="frame"/>
 
-    <circle cx="76" cy="329" r="5" class="blue"/>
-    <text x="92" y="334" class="label ink">RESEARCH PROFILE</text>
-    <text x="644" y="334" text-anchor="end" class="label muted">ORCID + SCHOLAR</text>
+    <circle cx="72" cy="326" r="5" class="blue"/>
+    <text x="88" y="331" class="label ink">RESEARCH PROFILE</text>
+    <text x="648" y="331" text-anchor="end" class="label muted">ORCID + SCHOLAR</text>
 
-    <line x1="76" y1="356.5" x2="644" y2="356.5" class="hairline"/>
-    <line x1="360" y1="379" x2="360" y2="538" class="hairline"/>
-    <line x1="76" y1="456" x2="644" y2="456" class="hairline"/>
+    <line x1="72" y1="352.5" x2="648" y2="352.5" class="hairline"/>
+    <line x1="360" y1="374" x2="360" y2="548" class="hairline"/>
+    <line x1="72" y1="460" x2="648" y2="460" class="hairline"/>
 
-    <circle cx="76" cy="392" r="5" fill="#0072F5"/>
-    <text x="92" y="397" class="label muted">PUBLICATIONS</text>
-    <text id="metric-publications" x="76" y="442" class="metric-value ink">29</text>
+    <circle cx="72" cy="382" r="5" fill="#0072F5"/>
+    <text x="88" y="387" class="label muted">PUBLICATIONS</text>
+    <text id="metric-publications" x="72" y="435" class="metric-value ink">29</text>
 
-    <circle cx="396" cy="392" r="5" fill="#45DEC5"/>
-    <text x="412" y="397" class="label muted">CITATIONS</text>
-    <text id="metric-citations" x="396" y="442" class="metric-value ink">124</text>
+    <circle cx="392" cy="382" r="5" fill="#45DEC5"/>
+    <text x="408" y="387" class="label muted">CITATIONS</text>
+    <text id="metric-citations" x="392" y="435" class="metric-value ink">124</text>
 
-    <circle cx="76" cy="491" r="5" fill="#EA3E83"/>
-    <text x="92" y="496" class="label muted">H-INDEX</text>
-    <text id="metric-h-index" x="76" y="541" class="metric-value ink">6</text>
+    <circle cx="72" cy="490" r="5" fill="#EA3E83"/>
+    <text x="88" y="495" class="label muted">H-INDEX</text>
+    <text id="metric-h-index" x="72" y="543" class="metric-value ink">6</text>
 
-    <circle cx="396" cy="491" r="5" fill="#FF990A"/>
-    <text x="412" y="496" class="label muted">I10-INDEX</text>
-    <text id="metric-i10-index" x="396" y="541" class="metric-value ink">5</text>
+    <circle cx="392" cy="490" r="5" fill="#FF990A"/>
+    <text x="408" y="495" class="label muted">I10-INDEX</text>
+    <text id="metric-i10-index" x="392" y="543" class="metric-value ink">5</text>
   </g>
 
-  <rect x="1" y="1" width="718" height="618" rx="16" class="frame"/>
+  <rect x="1" y="1" width="718" height="618" rx="14" class="frame"/>
 </svg>
