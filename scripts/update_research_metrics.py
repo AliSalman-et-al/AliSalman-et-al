@@ -17,6 +17,12 @@ from typing import Any
 
 ORCID_ID = "0009-0001-1102-226X"
 SCHOLAR_AUTHOR_ID = "DNLvp9YAAAAJ"
+SCHOLAR_BADGE_BASE_URL = "https://google-scholar-badge.vercel.app"
+SCHOLAR_BADGE_ENDPOINTS = (
+    ("citations", "citations"),
+    ("h_index", "h-index"),
+    ("i10_index", "i10-index"),
+)
 DESKTOP_HERO_PATH = Path("assets/hero.svg")
 MOBILE_HERO_PATH = Path("assets/hero-mobile.svg")
 METRICS_PATH = Path("data/research-metrics.json")
@@ -135,6 +141,20 @@ def parse_nonnegative_int(value: Any) -> int | None:
     return None
 
 
+def parse_badge_metric(value: Any) -> int | None:
+    """Parse a successful Shields endpoint message without accepting error codes."""
+
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value if value >= 0 else None
+    if isinstance(value, str):
+        normalized = value.strip().replace(",", "")
+        if normalized.isdecimal():
+            return int(normalized)
+    return None
+
+
 def fetch_orcid_publications() -> int:
     payload = request_json(
         f"https://pub.orcid.org/v3.0/{ORCID_ID}/works",
@@ -148,6 +168,33 @@ def fetch_orcid_publications() -> int:
     if publications <= 0:
         raise RuntimeError("ORCID returned an implausible publication count")
     return publications
+
+
+def fetch_scholar_via_badge() -> tuple[int, int, int]:
+    """Read all-time Scholar metrics from the cached badge endpoints."""
+
+    query = urllib.parse.urlencode({"user": SCHOLAR_AUTHOR_ID})
+    values: dict[str, int] = {}
+
+    for metric_name, endpoint in SCHOLAR_BADGE_ENDPOINTS:
+        payload = request_json(
+            f"{SCHOLAR_BADGE_BASE_URL}/{endpoint}?{query}",
+            description=f"the Google Scholar badge {endpoint} endpoint",
+        )
+        if not isinstance(payload, dict) or payload.get("schemaVersion") != 1:
+            raise RuntimeError(
+                f"Google Scholar badge {endpoint} returned an unexpected response"
+            )
+
+        value = parse_badge_metric(payload.get("message"))
+        if value is None:
+            message = str(payload.get("message") or "unknown error")
+            raise RuntimeError(
+                f"Google Scholar badge {endpoint} returned {message!r}"
+            )
+        values[metric_name] = value
+
+    return values["citations"], values["h_index"], values["i10_index"]
 
 
 def all_time_value(value: Any) -> int | None:
@@ -227,17 +274,28 @@ def fetch_scholar_direct() -> tuple[int, int, int]:
 
 
 def fetch_scholar_metrics() -> tuple[int, int, int]:
-    api_key = os.environ.get("SERPAPI_KEY", "").strip()
     errors: list[str] = []
 
+    try:
+        metrics = fetch_scholar_via_badge()
+        print("Google Scholar source: google-scholar-badge.")
+        return metrics
+    except RuntimeError as exc:
+        errors.append(str(exc))
+
+    api_key = os.environ.get("SERPAPI_KEY", "").strip()
     if api_key:
         try:
-            return fetch_scholar_via_serpapi(api_key)
+            metrics = fetch_scholar_via_serpapi(api_key)
+            print("Google Scholar source: SerpAPI.")
+            return metrics
         except RuntimeError as exc:
             errors.append(str(exc))
 
     try:
-        return fetch_scholar_direct()
+        metrics = fetch_scholar_direct()
+        print("Google Scholar source: direct profile.")
+        return metrics
     except RuntimeError as exc:
         errors.append(str(exc))
 
