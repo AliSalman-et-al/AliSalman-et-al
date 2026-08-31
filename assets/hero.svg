@@ -1,6 +1,6 @@
 <svg width="1200" height="384" viewBox="0 0 1200 384" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision">
-  <title id="title">Ali Salman — medical student studying clinical outcomes with health data and evidence synthesis.</title>
-  <desc id="desc">A Vercel-inspired profile card. Ali builds open-source research software and explores AI in healthcare. Public research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
+  <title id="title">Ali Salman. Medical student working in health data science, AI and machine learning, clinical research, evidence synthesis, and open-source research software.</title>
+  <desc id="desc">A Vercel-inspired profile card with public research metrics: 29 publications, 124 citations, h-index 6, and i10-index 5.</desc>
 
   <defs>
     <clipPath id="frame-clip">
@@ -111,12 +111,9 @@
     <rect x="560" y="0" width="600" height="384" fill="url(#text-fade-light)" class="fade-light"/>
     <rect x="560" y="0" width="600" height="384" fill="url(#text-fade-dark)" class="fade-dark"/>
 
-    <circle cx="64" cy="50" r="4.5" class="blue"/>
-    <text x="78" y="54" class="label ink">MEDICAL STUDENT</text>
-
-    <text x="64" y="151" class="display ink">Ali Salman.</text>
-    <text x="64" y="204" class="body-text body">I study clinical outcomes with health data and evidence synthesis.</text>
-    <text x="64" y="233" class="body-text body">I build open-source research software and explore AI in healthcare.</text>
+    <text x="64" y="134" class="display ink">Ali Salman.</text>
+    <text x="64" y="187" class="body-text body">I am a medical student working in health data science, AI and machine learning,</text>
+    <text x="64" y="216" class="body-text body">clinical research, and evidence synthesis. I build open-source research software.</text>
 
     <rect x="752" y="80" width="384" height="232" rx="12" class="card-shadow"/>
     <rect x="752" y="76" width="384" height="232" rx="12" class="surface"/>
