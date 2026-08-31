@@ -9,7 +9,7 @@ on:
       - scripts/update_research_metrics.py
       - .github/workflows/update-research-metrics.yml
   schedule:
-    - cron: "23 3 * * 1"
+    - cron: "0 0 * * 1"
   workflow_dispatch:
 
 permissions:
