@@ -23,6 +23,23 @@ SCHOLAR_BADGE_ENDPOINTS = (
     ("h_index", "h-index"),
     ("i10_index", "i10-index"),
 )
+SERPAPI_BASE_URL = "https://serpapi.com/search"
+SERPAPI_JSON_RESTRICTOR = (
+    "search_metadata.status,"
+    "search_parameters.{engine,author_id,hl},"
+    "error,"
+    "cited_by.table"
+)
+SERPAPI_KEY_ENV_VARS = ("SERPAPI_KEY", "SERPAPI_API_KEY")
+SERPAPI_METRIC_KEYS = {
+    "citations": "citations",
+    "h_index": "h_index",
+    "hindex": "h_index",
+    "indice_h": "h_index",
+    "i10_index": "i10_index",
+    "i10index": "i10_index",
+    "indice_i10": "i10_index",
+}
 DESKTOP_HERO_PATH = Path("assets/hero.svg")
 MOBILE_HERO_PATH = Path("assets/hero-mobile.svg")
 METRICS_PATH = Path("data/research-metrics.json")
@@ -101,6 +118,26 @@ class ScholarMetricsParser(HTMLParser):
             self._row_values = []
 
 
+def http_error_detail(exc: urllib.error.HTTPError) -> str:
+    try:
+        body = exc.read()
+    except OSError:
+        body = b""
+
+    if body:
+        try:
+            payload = json.loads(body)
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            text = body.decode("utf-8", errors="replace").strip()
+            if text:
+                return text[:200]
+        else:
+            if isinstance(payload, dict) and payload.get("error"):
+                return str(payload["error"])
+
+    return str(exc.reason)
+
+
 def request_bytes(url: str, *, description: str, accept: str) -> bytes:
     request = urllib.request.Request(
         url,
@@ -116,6 +153,11 @@ def request_bytes(url: str, *, description: str, accept: str) -> bytes:
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return response.read()
+    except urllib.error.HTTPError as exc:
+        detail = http_error_detail(exc)
+        raise RuntimeError(
+            f"Could not read {description}: HTTP {exc.code}: {detail}"
+        ) from exc
     except (urllib.error.URLError, TimeoutError) as exc:
         raise RuntimeError(f"Could not read {description}: {exc}") from exc
 
@@ -124,7 +166,7 @@ def request_json(url: str, *, description: str, accept: str = "application/json"
     payload = request_bytes(url, description=description, accept=accept)
     try:
         return json.loads(payload)
-    except json.JSONDecodeError as exc:
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise RuntimeError(f"{description} returned invalid JSON") from exc
 
 
@@ -199,44 +241,86 @@ def fetch_scholar_via_badge() -> tuple[int, int, int]:
 
 def all_time_value(value: Any) -> int | None:
     if isinstance(value, dict):
-        for key in ("all", "all_time", "total"):
-            parsed = parse_nonnegative_int(value.get(key))
-            if parsed is not None:
-                return parsed
-        return None
-    return parse_nonnegative_int(value)
+        return parse_nonnegative_int(value.get("all"))
+    return None
 
 
-def fetch_scholar_via_serpapi(api_key: str) -> tuple[int, int, int]:
-    query = urllib.parse.urlencode(
-        {
-            "engine": "google_scholar_author",
-            "author_id": SCHOLAR_AUTHOR_ID,
-            "hl": "en",
-            "api_key": api_key,
-        }
-    )
-    payload = request_json(
-        f"https://serpapi.com/search.json?{query}",
-        description="the SerpAPI Google Scholar author response",
-    )
-    table = payload.get("cited_by", {}).get("table") if isinstance(payload, dict) else None
+def normalize_serpapi_metric_key(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", value.casefold()).strip("_")
+
+
+def parse_serpapi_metrics(payload: Any) -> tuple[int, int, int]:
+    """Validate a Google Scholar Author response and read all-time metrics."""
+
+    if not isinstance(payload, dict):
+        raise RuntimeError("SerpApi returned an unexpected response")
+
+    error = payload.get("error")
+    if error:
+        raise RuntimeError(f"SerpApi returned an error: {error}")
+
+    metadata = payload.get("search_metadata")
+    if not isinstance(metadata, dict):
+        raise RuntimeError("SerpApi returned no search metadata")
+
+    status = metadata.get("status")
+    if status != "Success":
+        raise RuntimeError(f"SerpApi search status was {status!r}")
+
+    parameters = payload.get("search_parameters")
+    if not isinstance(parameters, dict):
+        raise RuntimeError("SerpApi returned no search parameters")
+    if parameters.get("engine") != "google_scholar_author":
+        raise RuntimeError("SerpApi returned results from the wrong engine")
+    if parameters.get("author_id") != SCHOLAR_AUTHOR_ID:
+        raise RuntimeError("SerpApi returned results for the wrong author")
+
+    table = payload.get("cited_by", {}).get("table")
     if not isinstance(table, list):
-        raise RuntimeError("SerpAPI returned no Google Scholar metrics table")
+        raise RuntimeError("SerpApi returned no Google Scholar metrics table")
 
     values: dict[str, int] = {}
     for row in table:
         if not isinstance(row, dict):
             continue
-        for source_key in ("citations", "h_index", "i10_index"):
-            parsed = all_time_value(row.get(source_key))
+        for raw_key, raw_value in row.items():
+            normalized_key = normalize_serpapi_metric_key(str(raw_key))
+            metric_name = SERPAPI_METRIC_KEYS.get(normalized_key)
+            if metric_name is None:
+                continue
+            parsed = all_time_value(raw_value)
             if parsed is not None:
-                values[source_key] = parsed
+                values[metric_name] = parsed
 
     required = ("citations", "h_index", "i10_index")
-    if any(key not in values for key in required):
-        raise RuntimeError("SerpAPI returned an incomplete Google Scholar metrics table")
+    missing = [metric for metric in required if metric not in values]
+    if missing:
+        raise RuntimeError(
+            "SerpApi returned an incomplete Google Scholar metrics table: "
+            + ", ".join(missing)
+        )
+
     return values["citations"], values["h_index"], values["i10_index"]
+
+
+def fetch_scholar_via_serpapi(api_key: str) -> tuple[int, int, int]:
+    # Keep the documented synchronous and cache-enabled defaults. SerpApi caches
+    # identical searches for one hour and does not count cached results as searches.
+    query = urllib.parse.urlencode(
+        {
+            "engine": "google_scholar_author",
+            "author_id": SCHOLAR_AUTHOR_ID,
+            "hl": "en",
+            "output": "json",
+            "json_restrictor": SERPAPI_JSON_RESTRICTOR,
+            "api_key": api_key,
+        }
+    )
+    payload = request_json(
+        f"{SERPAPI_BASE_URL}?{query}",
+        description="the SerpApi Google Scholar Author response",
+    )
+    return parse_serpapi_metrics(payload)
 
 
 def fetch_scholar_direct() -> tuple[int, int, int]:
@@ -273,6 +357,14 @@ def fetch_scholar_direct() -> tuple[int, int, int]:
     return result["citations"], result["h_index"], result["i10_index"]
 
 
+def get_serpapi_key() -> str | None:
+    for name in SERPAPI_KEY_ENV_VARS:
+        value = os.environ.get(name, "").strip()
+        if value:
+            return value
+    return None
+
+
 def fetch_scholar_metrics() -> tuple[int, int, int]:
     errors: list[str] = []
 
@@ -283,11 +375,11 @@ def fetch_scholar_metrics() -> tuple[int, int, int]:
     except RuntimeError as exc:
         errors.append(str(exc))
 
-    api_key = os.environ.get("SERPAPI_KEY", "").strip()
+    api_key = get_serpapi_key()
     if api_key:
         try:
             metrics = fetch_scholar_via_serpapi(api_key)
-            print("Google Scholar source: SerpAPI.")
+            print("Google Scholar source: SerpApi.")
             return metrics
         except RuntimeError as exc:
             errors.append(str(exc))
