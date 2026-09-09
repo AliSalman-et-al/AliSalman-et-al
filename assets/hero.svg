@@ -133,7 +133,7 @@
 
     <circle cx="976" cy="158" r="4" fill="#45DEC5"/>
     <text x="988" y="162" class="label muted">CITATIONS</text>
-    <text id="metric-citations" x="976" y="202" class="metric-value ink">124</text>
+    <text id="metric-citations" x="976" y="202" class="metric-value ink">125</text>
 
     <circle cx="784" cy="244" r="4" fill="#EA3E83"/>
     <text x="796" y="248" class="label muted">H-INDEX</text>
