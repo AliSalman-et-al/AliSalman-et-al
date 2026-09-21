@@ -129,11 +129,11 @@
 
     <circle cx="784" cy="158" r="4" fill="#0072F5"/>
     <text x="796" y="162" class="label muted">PUBLICATIONS</text>
-    <text id="metric-publications" x="784" y="202" class="metric-value ink">29</text>
+    <text id="metric-publications" x="784" y="202" class="metric-value ink">30</text>
 
     <circle cx="976" cy="158" r="4" fill="#45DEC5"/>
     <text x="988" y="162" class="label muted">CITATIONS</text>
-    <text id="metric-citations" x="976" y="202" class="metric-value ink">125</text>
+    <text id="metric-citations" x="976" y="202" class="metric-value ink">128</text>
 
     <circle cx="784" cy="244" r="4" fill="#EA3E83"/>
     <text x="796" y="248" class="label muted">H-INDEX</text>
